@@ -1,0 +1,187 @@
+<html> 
+<body >	 
+	<form action="http://localhost:5000/login" method="post">
+    <p><font size="10">Harrish Murugesan</font></p>
+    <h1>Name:<input type="text" name="nm" id="name" /></h1>
+    <h2>range:<input type="text" name="nm1" id="range" /></h2>
+    <h3>Owner Number:<input type="text" name="nm1" id="roomnumber" /></h3>
+    <input type="button" value="showImageByname" onclick="showImageByname()" value="Submit">
+    <input type="button" value="showAllpicExisiting" onclick="showAllpicExisiting()" value="Submit">
+    <input type="button" value="showImageByRange" onclick="showImageByRange()" value="Submit">
+	<input type="button" value="showFileDetails" onclick="showFileDetails()" value="Submit">
+	
+
+    <div id="demo"></div>
+    <div id="demo2"></div>
+	</form>	 
+  <script >
+  
+
+        function showImageByname() {
+            var y = document.getElementById("name").value;
+            var x = document.createElement("IMG");
+            x.setAttribute("src", y + ".jpg");
+            x.setAttribute("width", "304");
+            x.setAttribute("height", "228");
+            x.setAttribute("alt", "No Picture available");
+            document.body.appendChild(x);
+        }
+		
+		
+		function showFileDetails(){
+		  var obj = [{
+                "pic": "bunny.jpg",
+                "owner": 42,
+                "name": "bob",
+            },
+            {
+                "pic": "car.jpg",
+                "owner": 16,
+                "name": "Bob",
+            },
+            {
+                "pic": "peel.jpg",
+                "owner": 80,
+                "name": "Patrice",
+            },
+            {
+                "pic": "stout.jpg",
+                "owner": 17,
+                "name": "Salman",
+            },
+            {
+                "pic": "tech.jpg",
+                "owner": 25,
+                "name": "Tim",
+            },
+			{
+			    "pic": "text.jpg",
+                "owner": 88,
+                "name": "Tom",
+			}
+    
+    
+        ]
+    
+        for (i = 0; i < obj.length; i++) {
+            d = obj[i];
+            
+    
+                
+                var img = document.createElement("img");
+                img.src = d.pic;
+                var src = document.getElementById("demo");
+                var textnode = document.createTextNode(d.name); // Create a text node
+                src.appendChild(textnode);
+                src.appendChild(img);
+		
+	
+		}
+		}
+    
+    
+    function showAllpicExisiting() {
+        var obj = [{
+                "pic": "bunny.jpg",
+                "owner": 42,
+                "name": "bob",
+            },
+            {
+                "pic": "car.jpg",
+                "owner": 16,
+                "name": "Bob",
+            },
+            {
+                "pic": "peel.jpg",
+                "owner": 80,
+                "name": "Patrice",
+            },
+            {
+                "pic": "stout.jpg",
+                "owner": 17,
+                "name": "Salman",
+            },
+            {
+                "pic": "tech.jpg",
+                "owner": 25,
+                "name": "Tim",
+            },
+			{
+			    "pic": "text.jpg",
+                "owner": 88,
+                "name": "Tom",
+			}
+    
+        ]
+        var y = document.getElementById("name").value;
+        for (i = 0; i < obj.length; i++) {
+            d = obj[i];
+            if (d.name == y) {
+                document.getElementById("demo").innerHTML = d.name
+                var x = document.createElement("IMG");
+                document.getElementById("demo2").innerHTML = "<img src=" + d.picture + " width=\"400px\" height=\"150px\">";
+    
+            }
+    
+    
+        }
+    
+    }
+    
+    function showImageByRange() {
+        var obj = [{
+                "pic": "bunny.jpg",
+                "owner": 42,
+                "name": "bob",
+            },
+            {
+                "pic": "car.jpg",
+                "owner": 16,
+                "name": "Bob",
+            },
+            {
+                "pic": "peel.jpg",
+                "owner": 80,
+                "name": "Patrice",
+            },
+            {
+                "pic": "stout.jpg",
+                "owner": 17,
+                "name": "Salman",
+            },
+            {
+                "pic": "tech.jpg",
+                "owner": 25,
+                "name": "Tim",
+            },
+			{
+			    "pic": "text.jpg",
+                "owner": 88,
+                "name": "Tom",
+			}
+    
+    
+        ]
+        var y = document.getElementById("range").value;
+        var res = y.split("-");
+    
+        for (i = 0; i < obj.length; i++) {
+            d = obj[i];
+            if (d.owner >= res[0] && d.owner <= res[1]) {
+    
+                var img = document.createElement("img");
+                img.src = d.pic;
+                var src = document.getElementById("demo");
+                var textnode = document.createTextNode(d.name); // Create a text node
+                src.appendChild(textnode);
+                src.appendChild(img);
+            }
+
+        }    
+    }
+    
+  
+    
+    </script>
+</body> 
+</html> 
